@@ -26,9 +26,14 @@ const SingleProductDetail = () => {
     const { products, quantity, setQuantity, total, setTotal } = useContext(CartContext);
     const { currUser } = useContext(UserContext);
 
-    const addToCart = (product) => {
+    const addToCart = async (product) => {
         if (!currUser) {
-            navigate("/login");
+            toast.error("First You have to Login Your Account", {
+                position: "top-center"
+            })
+            setTimeout(() => {
+                navigate("/login");
+            }, 3000);
             return;
         }
         product = { ...product, size, color, quantity: currQuantity };
@@ -36,9 +41,17 @@ const SingleProductDetail = () => {
             products.push(product);
             setQuantity(quantity + 1);
             setTotal(total + (currQuantity * product.price));
-            toast.success("Product has been Added to the Cart", {
-                position: "top-center"
-            })
+
+            try {
+                await axios.post("https://luxuryhub.herokuapp.com/api/cart/create", { products, quantity, total });
+                toast.success("Product has been Added to the Cart", {
+                    position: "top-center"
+                })
+            } catch (e) {
+                toast.error("Product Adding to the Cart is Failed", {
+                    position: "top-center"
+                })
+            }
         } else {
             toast.error("Same Size and Color Item Already in the Cart", {
                 position: "top-center"
@@ -56,17 +69,6 @@ const SingleProductDetail = () => {
             }
         }
         getProductData();
-        const postCart = async () => {
-            try {
-                await axios.post("https://luxuryhub.herokuapp.com/api/cart/create", { products, quantity, total });
-            } catch (e) {
-                toast.error("Product Adding to the Cart is Failed", {
-                    position: "top-center"
-                })
-                console.log(e);
-            }
-        }
-        postCart();
     }, [products, quantity, total, productId]);
 
     return (
