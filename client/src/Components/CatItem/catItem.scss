@@ -1,0 +1,192 @@
+.catItem {
+  margin: 5px;
+  height: 400px;
+  width: 350px;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover .info {
+    display: flex;
+    transform: translateY(0);
+  }
+
+  .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.6);
+    transform: translateY(-100%);
+    transition: all 500ms ease;
+
+    .title {
+      margin: 20px;
+      color: white;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    button {
+      border: none;
+      padding: 10px 20px;
+      background: white;
+      color: gray;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: all 500ms ease;
+
+      &:hover {
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1480px) {
+  .catItem {
+    margin: 5px;
+    height: 380px;
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .catItem {
+    margin: 5px;
+    height: 350px;
+    width: 270px;
+  }
+}
+@media only screen and (max-width: 1165px) {
+  .catItem {
+    margin: 5px;
+    height: 330px;
+    width: 250px;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .catItem {
+    margin: 5px;
+    height: 300px;
+    width: 220px;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .catItem {
+    margin: 5px;
+    height: 280px;
+    width: 200px;
+  }
+}
+@media only screen and (max-width: 880px) {
+  .catItem {
+    margin: 5px;
+    height: 350px;
+    width: 300px;
+
+    &:hover .info {
+      transform: none;
+    }
+
+    .info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      transform: none;
+      transition: none;
+      background: none;
+
+      .title {
+        background: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        padding: 10px 0;
+        margin: 0;
+        font-size: 18px;
+      }
+
+      button {
+        border: none;
+        padding: 5px 10px;
+        font-weight: 600;
+        border-radius: 0;
+        margin: 10px 0;
+        width: 100px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 665px) {
+  .catItem {
+    margin: 5px;
+    height: 330px;
+    width: 270px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .catItem {
+    margin: 5px;
+    height: 300px;
+    width: 240px;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .catItem {
+    margin: 5px;
+    height: 260px;
+    width: 200px;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .catItem {
+    margin: 5px;
+    height: 230px;
+    width: 170px;
+
+    .info {
+      .title {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 380px) {
+  .catItem {
+    margin: 5px;
+    height: 370px;
+    width: 90vw;
+    min-width: 230px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .catItem {
+    margin: 5px;
+    height: 320px;
+    width: 90vw;
+    min-width: 230px;
+  }
+}
+@media only screen and (max-width: 270px) {
+  .catItem {
+    margin: 5px;
+    height: 280px;
+    width: 90vw;
+    min-width: 220px;
+  }
+}

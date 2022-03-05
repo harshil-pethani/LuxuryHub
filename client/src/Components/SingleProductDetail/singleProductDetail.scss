@@ -1,0 +1,375 @@
+.singleProductDetail {
+  padding: 50px;
+  display: flex;
+
+  .imgContainer {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    img {
+      // width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+  }
+  .infoContainer {
+    flex: 1;
+    padding: 20px 50px;
+
+    .title {
+      margin: 0;
+      font-weight: 200;
+    }
+    .desc {
+      margin: 20px 0;
+      font-size: 20px;
+    }
+    .price {
+      font-weight: 100;
+      font-size: 40px;
+    }
+
+    .filterSingleContainer {
+      display: flex;
+      justify-content: flex-start;
+      margin: 30px 0;
+      // border: 2px solid red;
+      .filter {
+        display: flex;
+        align-items: center;
+        // border: 2px solid red;
+        &:first-child {
+          margin-right: 50px;
+        }
+        .filterTitle {
+          font-size: 20px;
+          font-weight: 200;
+          margin-right: 10px;
+        }
+
+        .filterSize,
+        .filterColor {
+          margin-left: 10px;
+          padding: 5px;
+          outline: none;
+          cursor: pointer;
+
+          .filterSizeOption {
+            padding: 10px;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .error {
+      color: red;
+      // border: 2px solid red;
+    }
+
+    .quantityContainer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      .amountContainer {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        .amount {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid teal;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 10px;
+        }
+        .icon {
+          //   border: 1px solid red;
+          border-radius: 50%;
+          cursor: pointer;
+          background: teal;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 30px;
+          width: 30px;
+        }
+      }
+      button {
+        text-transform: uppercase;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 14px;
+        border-radius: 5px;
+        transition: all 500ms ease;
+        background-color: teal;
+        color: white;
+        border: 2px solid teal;
+        margin-left: 100px;
+        width: 200px;
+
+        &:hover {
+          color: teal;
+          background-color: white;
+          letter-spacing: 3px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .singleProductDetail {
+    padding: 50px 20px;
+    display: flex;
+
+    .imgContainer {
+      height: 400px;
+      img {
+        height: 300px;
+      }
+    }
+    .infoContainer {
+      padding: 10px;
+
+      .title {
+        font-weight: 200;
+        font-size: 22px;
+      }
+      .desc {
+        margin: 20px 0;
+        font-size: 18px;
+      }
+      .price {
+        font-size: 30px;
+      }
+
+      .filterSingleContainer {
+        margin: 30px 0;
+        .filter {
+          &:first-child {
+            margin-right: 30px;
+          }
+          .filterTitle {
+            font-size: 18px;
+            margin-right: 5px;
+          }
+
+          .filterSize,
+          .filterColor {
+            margin-left: 5px;
+
+            .filterSizeOption {
+              padding: 10px;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .error {
+        color: red;
+        font-weight: 600;
+      }
+
+      .quantityContainer {
+        margin-top: 20px;
+        .amountContainer {
+          .amount {
+            width: 30px;
+            height: 30px;
+          }
+          .icon {
+            height: 25px;
+            width: 25px;
+          }
+        }
+        button {
+          padding: 10px;
+          font-size: 12px;
+          margin-left: 60px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .singleProductDetail {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .imgContainer {
+      // border: 2px solid red;
+      height: 300px;
+      img {
+        height: 200px;
+      }
+    }
+    .infoContainer {
+      padding: 0;
+
+      .title {
+        font-weight: 200;
+        font-size: 18px;
+      }
+      .desc {
+        margin: 20px 0;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .price {
+        font-size: 25px;
+        margin: 0;
+      }
+
+      .filterSingleContainer {
+        flex-wrap: wrap;
+        margin: 10px 0;
+        .filter {
+          margin: 5px 0;
+          &:first-child {
+            margin-right: 30px;
+          }
+          .filterTitle {
+            font-size: 16px;
+            margin-right: 5px;
+          }
+
+          .filterSize,
+          .filterColor {
+            margin-left: 5px;
+
+            .filterSizeOption {
+              padding: 10px;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .error {
+        color: red;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .quantityContainer {
+        margin-top: 20px;
+        .amountContainer {
+          .amount {
+            width: 30px;
+            height: 30px;
+          }
+          .icon {
+            height: 25px;
+            width: 25px;
+          }
+        }
+        button {
+          padding: 10px;
+          font-size: 12px;
+          margin-left: 60px;
+          width: 140px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 325px) {
+  .singleProductDetail {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    .imgContainer {
+      // border: 2px solid red;
+      height: 300px;
+      img {
+        height: 200px;
+      }
+    }
+    .infoContainer {
+      padding: 0;
+
+      .title {
+        font-weight: 200;
+        font-size: 16px;
+      }
+      .desc {
+        margin: 20px 0;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .price {
+        font-size: 20px;
+        margin: 0;
+      }
+
+      .filterSingleContainer {
+        // flex-wrap: wrap;
+        margin: 10px 0;
+        .filter {
+          margin: 5px 0;
+          &:first-child {
+            margin-right: 30px;
+          }
+          .filterTitle {
+            font-size: 14px;
+            margin-right: 5px;
+          }
+
+          .filterSize,
+          .filterColor {
+            margin-left: 5px;
+
+            .filterSizeOption {
+              padding: 10px;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .error {
+        color: red;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .quantityContainer {
+        // justify-content: space-between;
+        flex-direction: column;
+        .amountContainer {
+          margin-bottom: 10px;
+          // border: 2px solid red;
+          width: 100%;
+          .amount {
+            width: 25px;
+            height: 25px;
+          }
+          .icon {
+            height: 20px;
+            width: 20px;
+          }
+        }
+        button {
+          padding: 8px;
+          font-size: 12px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

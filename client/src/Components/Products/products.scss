@@ -1,0 +1,15 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 20px;
+  overflow: hidden;
+  min-width: 220px;
+  // width:100%;
+}
+
+@media only screen and (max-width: 320px) {
+  .products {
+    padding: 0 10px;
+  }
+}

@@ -1,0 +1,191 @@
+.register {
+  height: 100vh;
+
+  .registerWrapper {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    background: linear-gradient(
+      to left bottom,
+      #fff9fe,
+      #e6e2ee,
+      #c7cddf,
+      #a2bace,
+      #7ca8b7,
+      #6fa9b3,
+      #65aaad,
+      #5eaaa3,
+      #6bbfb1,
+      #7bd4be,
+      #8eeac9,
+      #a3ffd3
+    );
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+
+    .wrapper {
+      margin: 50px 0;
+      width: 40%;
+      height: fit-content;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(3.5px);
+      -webkit-backdrop-filter: blur(3.5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: all 500ms ease;
+      .title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 800;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      form {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        input {
+          flex: 1;
+          min-width: 200px;
+          width: 300px;
+          margin: 20px 10px 0 0;
+          padding: 10px;
+          outline: none;
+          border: 3px solid rgb(146, 146, 146);
+
+          &:focus {
+            border: 3px solid teal;
+          }
+        }
+        .agreement {
+          font-size: 14px;
+          margin: 20px 0;
+          text-align: center;
+          font-weight: 500;
+        }
+        button {
+          width: 40%;
+          border: 2px solid teal;
+          outline: none;
+          padding: 10px 20px;
+          background-color: teal;
+          color: white;
+          cursor: pointer;
+          font-size: 16px;
+          transition: all 500ms ease;
+          text-transform: uppercase;
+
+          &:disabled {
+            cursor: not-allowed;
+          }
+
+          &:hover {
+            background-color: white;
+            border: 2px solid teal;
+            color: teal;
+            font-weight: 500;
+            letter-spacing: 3px;
+          }
+        }
+        .error {
+          color: red;
+          width: 100%;
+          text-align: center;
+        }
+
+        .link {
+          width: 100%;
+          margin: 5px 0;
+          margin-top: 20px;
+          font-size: 12px;
+          font-weight: 400;
+          text-decoration: none;
+          cursor: pointer;
+          text-transform: uppercase;
+          color: teal;
+          color: black;
+
+          a {
+            color: inherit;
+            font-weight: 800;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .register {
+    height: calc(100vh - 80px);
+    .registerWrapper {
+      height: auto;
+      .wrapper {
+        height: fit-content;
+        width: 60%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .register {
+    min-width: 230px;
+    .registerWrapper {
+      min-width: 220px;
+
+      .wrapper {
+        width: 80%;
+        padding: 15px;
+        min-width: 200px;
+
+        .title {
+          font-size: 20px;
+          letter-spacing: 2px;
+          margin: 5px 0;
+        }
+
+        form {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          input {
+            margin: 10px 5px 0 0;
+            font-size: 12px;
+            padding: 5px;
+            min-width: 150px;
+            width: 200px;
+          }
+          .agreement {
+            font-size: 12px;
+          }
+          button {
+            width: 60%;
+            padding: 5px 20px;
+            font-size: 14px;
+
+            &:hover {
+              font-weight: 500;
+              letter-spacing: 3px;
+            }
+          }
+          .error {
+            font-size: 14px;
+            margin: 5px 0;
+          }
+
+          .link {
+            margin-top: 10px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

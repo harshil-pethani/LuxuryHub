@@ -1,0 +1,199 @@
+.login {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  .loginWrapper {
+    width: 100%;
+    // height: auto;
+    height: calc(100vh - 80px);
+    display: flex;
+    // border: 2px solid red;
+    justify-content: center;
+    background: linear-gradient(
+      to left bottom,
+      #fff9fe,
+      #e6e2ee,
+      #c7cddf,
+      #a2bace,
+      #7ca8b7,
+      #6fa9b3,
+      #65aaad,
+      #5eaaa3,
+      #6bbfb1,
+      #7bd4be,
+      #8eeac9,
+      #a3ffd3
+    );
+    background-attachment: fixed;
+
+    .wrapper {
+      margin: 100px 0;
+      width: 40%;
+      height: fit-content;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(3.5px);
+      -webkit-backdrop-filter: blur(3.5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: all 500ms ease;
+
+      .title {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 800;
+        text-align: center;
+        color: white;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        input {
+          flex: 1;
+          width: auto;
+          min-width: 200px;
+          margin: 10px 0;
+          padding: 10px;
+          outline: none;
+          border: 3px solid rgb(146, 146, 146);
+
+          &:focus {
+            border: 3px solid teal;
+            // border: 3px solid black;
+          }
+        }
+        button {
+          width: 40%;
+          text-transform: uppercase;
+          border: 2px solid teal;
+          // border: 2px solid black;
+          outline: none;
+          padding: 10px 20px;
+          background-color: teal;
+          // background-color: black;
+          color: white;
+          cursor: pointer;
+          font-size: 16px;
+          transition: all 500ms ease;
+          margin: 10px auto;
+
+          &:disabled {
+            cursor: not-allowed;
+          }
+
+          &:hover {
+            background-color: white;
+            border: 2px solid teal;
+            letter-spacing: 3px;
+            // border: 2px solid black;
+            color: teal;
+            // color: black;
+            font-weight: 500;
+          }
+        }
+
+        .error {
+          color: red;
+          width: 100%;
+          text-align: center;
+        }
+        .link {
+          margin: 5px 0;
+          font-size: 12px;
+          font-weight: 800;
+          text-decoration: none;
+          cursor: pointer;
+          text-transform: uppercase;
+          color: teal;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .login {
+    .loginWrapper {
+      height: 100%;
+      .wrapper {
+        height: fit-content;
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .login {
+    min-width: 240px;
+    // border: 2px solid red;
+    .loginWrapper {
+      min-width: 220px;
+      // border: 2px solid red;
+
+      .wrapper {
+        width: 70%;
+        padding: 15px;
+        min-width: 200px;
+
+        .title {
+          font-size: 20px;
+          letter-spacing: 2px;
+          margin: 5px 0;
+        }
+
+        form {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          input {
+            margin: 10px 10px 0 0;
+            font-size: 12px;
+            padding: 5px;
+            min-width: 150px;
+            width: auto;
+          }
+          .agreement {
+            font-size: 12px;
+          }
+          button {
+            width: 60%;
+            padding: 5px 20px;
+            font-size: 14px;
+
+            &:hover {
+              font-weight: 500;
+              letter-spacing: 3px;
+            }
+          }
+          .error {
+            font-size: 14px;
+            margin: 5px 0;
+          }
+
+          .link {
+            margin-top: 10px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .login {
+    .loginWrapper {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}

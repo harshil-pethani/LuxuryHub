@@ -1,0 +1,263 @@
+.product {
+  margin: 10px 0;
+  min-width: 210px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f3f5;
+  position: relative;
+
+  .circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    img {
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  > div {
+    width: 400px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+    transition: all 500ms ease;
+    margin: 10px;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+
+    span {
+      font-weight: 600;
+      font-size: 18px;
+      margin-right: 5px;
+      color: teal;
+
+      &.value {
+        color: black;
+      }
+    }
+
+    a {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+
+      button {
+        border: 2px solid teal;
+        padding: 7px;
+        width: 150px;
+        cursor: pointer;
+        color: white;
+        background-color: teal;
+        transition: all 500ms ease;
+
+        &:hover {
+          background-color: white;
+          color: teal;
+          letter-spacing: 3px;
+        }
+      }
+    }
+  }
+
+  // &:hover .info {
+  //   opacity: 1;
+  // }
+}
+
+@media only screen and (max-width: 1492px) {
+  .product {
+    margin: 10px 0;
+    width: 100%;
+    justify-content: space-between;
+
+    .info {
+      width: calc(100% - 300px);
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .product {
+    margin: 10px 0;
+    width: 100%;
+    justify-content: space-between;
+
+    .circle {
+      width: 200px;
+      height: 200px;
+
+      img {
+        height: 150px;
+      }
+    }
+
+    .info {
+      width: calc(100% - 280px);
+      height: 170px;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .product {
+    margin: 10px 0;
+    width: 100%;
+    justify-content: space-between;
+
+    .circle {
+      width: 150px;
+      height: 150px;
+
+      img {
+        height: 120px;
+      }
+    }
+
+    .info {
+      width: calc(100% - 220px);
+      height: 150px;
+      padding: 5px;
+
+      span {
+        font-size: 14px;
+        // margin: 0;
+      }
+
+      button {
+        padding: 5px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .product {
+    margin: 5px 0;
+    width: 100%;
+    justify-content: space-between;
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      margin-right: 5px;
+
+      img {
+        height: 90px;
+      }
+    }
+
+    .info {
+      width: calc(100% - 160px);
+      height: fit-content;
+      padding: 5px;
+
+      span {
+        font-size: 12px;
+        // margin: 0;
+      }
+
+      button {
+        padding: 5px;
+        font-size: 10px;
+        width: 80px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .product {
+    margin: 5px 0;
+    width: 100%;
+    justify-content: space-between;
+
+    .info {
+      > div {
+        margin: 0;
+      }
+    }
+
+    .circle {
+      width: 70px;
+      height: 70px;
+      margin-right: 0;
+
+      img {
+        height: 60px;
+      }
+    }
+
+    .info {
+      width: calc(100% - 130px);
+      height: fit-content;
+      padding: 5px;
+
+      span {
+        font-size: 10px;
+        // margin: 0;
+      }
+
+      button {
+        padding: 3px;
+        font-size: 8px;
+        width: 80px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 320px) {
+  .product {
+    margin: 5px 0;
+    min-width: 190px;
+    width: unset;
+    height: fit-content;
+    justify-content: space-between;
+
+    .info {
+      > div {
+        margin: 0;
+      }
+    }
+
+    .circle {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      margin-right: 0;
+
+      img {
+        height: 60px;
+      }
+    }
+
+    .info {
+      width: calc(100% - 100px);
+      height: fit-content;
+      padding: 5px;
+      margin: 5px;
+
+      span {
+        font-size: 10px;
+        // margin: 0;
+      }
+
+      button {
+        padding: 3px;
+        font-size: 8px;
+        width: 80px;
+        margin: 5px 0;
+      }
+    }
+  }
+}

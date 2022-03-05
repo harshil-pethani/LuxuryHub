@@ -1,0 +1,655 @@
+.orders {
+  padding: 20px;
+  min-height: calc(100vh - 80px - 30px - 295px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .title {
+    // border: 2px solid red;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  .orderDetails {
+    display: flex;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+    position: relative;
+
+    .viewOrder {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-weight: 700;
+      color: teal;
+      cursor: pointer;
+      transition: all 500ms ease;
+      z-index: 3;
+
+      &:hover {
+        letter-spacing: 2px;
+      }
+    }
+
+    .productImg {
+      border: 2px solid black;
+      // border: 2px solid red;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      width: 210px;
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+      }
+    }
+    .details {
+      display: flex;
+      padding: 20px;
+      flex-direction: column;
+      justify-content: space-around;
+      width:500px;
+      // border: 2px solid red;
+      overflow: hidden;
+      span {
+        display: flex;
+        align-items: center;
+
+        b {
+          margin-right: 10px;
+          // width: max-content;
+          // border: 2px solid red;
+        }
+      }
+    }
+    .orderDates {
+      width: 100%;
+      padding: 10px;
+      padding-top: 50px;
+      position: relative;
+      border-left: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .wrapper {
+        width: 530px;
+        height: 70px;
+        // border: 2px solid blue;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .dot {
+          height: 30px;
+          width: 30px;
+          position: absolute;
+          background: #000;
+          border-radius: 50%;
+          top: 10px;
+          color: #fff;
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &.one {
+            left: 20px;
+
+            &::after {
+              content: "Processing";
+              position: absolute;
+              top: 30px;
+              left: -15px;
+              color: black;
+              font-weight: 700;
+            }
+          }
+          &.two {
+            left: 170px;
+
+            &::after {
+              content: "Shipped";
+              position: absolute;
+              top: 30px;
+              left: -15px;
+              color: black;
+              font-weight: 700;
+            }
+          }
+          &.three {
+            left: 320px;
+
+            &::after {
+              content: "Out For Delivery";
+              position: absolute;
+              top: 30px;
+              left: -35px;
+              color: black;
+              font-weight: 700;
+              width: 150px;
+            }
+          }
+          &.four {
+            left: 470px;
+
+            &::after {
+              content: "Delivered";
+              position: absolute;
+              top: 30px;
+              left: -15px;
+              color: black;
+              font-weight: 700;
+            }
+          }
+        }
+        .progress-bar {
+          position: absolute;
+          height: 10px;
+          width: 150px;
+          top: 20px;
+          background: #bbb;
+          &.first {
+            left: 35px;
+          }
+          &.second {
+            left: 185px;
+          }
+          &.third {
+            left: 335px;
+          }
+        }
+      }
+    }
+  }
+
+  .emptryOrders {
+    border: 2px solid red;
+    width: 100%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    min-height: calc(100vh - 80px - 100px - 295px);
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1180px) {
+  .orders {
+    padding: 20px;
+    min-height: auto;
+
+    .title {
+      font-size: 30px;
+    }
+
+    .orderDetails {
+      width: 95vw;
+      .viewOrder {
+        top: 10px;
+        right: 15px;
+        font-size: 14px;
+      }
+
+      .productImg {
+        padding: 10px;
+        width: fit-content;
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+      .details {
+        padding: 10px;
+        justify-content: center;
+        width: 500px;
+        span {
+          font-size: 14px;
+          margin: 5px 0;
+
+          b {
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .orderDates {
+        padding-top: 25px;
+        font-size: 14px;
+
+        .wrapper {
+          margin-top: 15px;
+          width: 360px;
+          height: 70px;
+
+          .dot {
+            height: 24px;
+            width: 24px;
+
+            top: 10px;
+            font-size: 12px;
+
+            &.one {
+              left: 20px;
+
+              &::after {
+                top: 30px;
+                left: -15px;
+              }
+            }
+            &.two {
+              left: 120px;
+
+              &::after {
+                top: 30px;
+                left: -15px;
+              }
+            }
+            &.three {
+              left: 220px;
+
+              &::after {
+                top: 30px;
+                left: -35px;
+              }
+            }
+            &.four {
+              left: 320px;
+
+              &::after {
+                top: 30px;
+                left: -15px;
+              }
+            }
+          }
+          .progress-bar {
+            height: 8px;
+            width: 100px;
+            top: 18px;
+            &.first {
+              left: 34px;
+            }
+            &.second {
+              left: 134px;
+            }
+            &.third {
+              left: 234px;
+            }
+          }
+        }
+      }
+    }
+
+    .emptryOrders {
+      font-size: 30px;
+    }
+  }
+}
+@media only screen and (max-width: 875px) {
+  .orders {
+    padding: 20px;
+    min-height: auto;
+
+    .title {
+      font-size: 25px;
+      margin: 0;
+      margin-bottom: 10px;
+    }
+
+    .orderDetails {
+      width: 95vw;
+      .viewOrder {
+        top: 10px;
+        right: 15px;
+        font-size: 12px;
+      }
+
+      .productImg {
+        padding: 10px;
+        width: fit-content;
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .details {
+        padding: 10px;
+        justify-content: center;
+        width: 450px;
+        span {
+          font-size: 12px;
+          margin: 3px 0;
+
+          b {
+            margin-right: 5px;
+          }
+        }
+      }
+      .orderDates {
+        padding-top: 40px;
+        font-size: 12px;
+
+        .wrapper {
+          margin-top: 0;
+          width: 270px;
+          height: 60px;
+
+          .dot {
+            height: 20px;
+            width: 20px;
+
+            top: 10px;
+            font-size: 12px;
+
+            &.one {
+              left: 20px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+            &.two {
+              left: 90px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+            &.three {
+              left: 160px;
+
+              &::after {
+                top: 20px;
+                left: -10px;
+                width: 40px;
+              }
+            }
+            &.four {
+              left: 230px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+          }
+          .progress-bar {
+            height: 6px;
+            width: 70px;
+            top: 17px;
+            &.first {
+              left: 30px;
+            }
+            &.second {
+              left: 100px;
+            }
+            &.third {
+              left: 170px;
+            }
+          }
+        }
+      }
+    }
+
+    .emptryOrders {
+      font-size: 25px;
+    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  .orders {
+    padding: 20px;
+    min-height: auto;
+
+    .title {
+      font-size: 20px;
+    }
+
+    .orderDetails {
+      width: 95vw;
+      .viewOrder {
+        top: 10px;
+        right: 15px;
+      }
+
+      .productImg {
+        padding: 10px;
+        width: fit-content;
+        img {
+          width: 90px;
+          height: 90px;
+        }
+      }
+      .details {
+        padding: 10px;
+        justify-content: center;
+        width: 100%;
+        span {
+          font-size: 12px;
+          margin: 3px 0;
+
+          b {
+            margin-right: 5px;
+          }
+        }
+      }
+      .orderDates {
+        padding-top: 40px;
+        font-size: 12px;
+        display: none;
+
+        .deliverydetails {
+          padding: 0;
+        }
+        .wrapper {
+          margin-top: 0;
+          width: 270px;
+          height: 60px;
+
+          .dot {
+            height: 20px;
+            width: 20px;
+
+            top: 10px;
+            font-size: 12px;
+
+            &.one {
+              left: 20px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+            &.two {
+              left: 90px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+            &.three {
+              left: 160px;
+
+              &::after {
+                top: 20px;
+                left: -10px;
+                width: 40px;
+              }
+            }
+            &.four {
+              left: 230px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+          }
+          .progress-bar {
+            height: 6px;
+            width: 70px;
+            top: 17px;
+            &.first {
+              left: 30px;
+            }
+            &.second {
+              left: 100px;
+            }
+            &.third {
+              left: 170px;
+            }
+          }
+        }
+      }
+    }
+
+    .emptryOrders {
+      font-size: 20px;
+      height: 70px;
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .orders {
+    padding: 10px;
+    min-height: auto;
+    min-width: 220px;
+
+    .title {
+      font-size: 20px;
+    }
+
+    .orderDetails {
+      flex-direction: column;
+      align-items: center;
+      width: 95vw;
+      padding-top: 15px;
+      min-width: 225px;
+      .viewOrder {
+        top: 5px;
+        right: 5px;
+      }
+
+      .productImg {
+        padding: 10px;
+        width: fit-content;
+        img {
+          width: 90px;
+          height: 90px;
+        }
+      }
+      .details {
+        padding: 10px;
+        justify-content: center;
+        width: 90%;
+
+        span {
+          font-size: 12px;
+          margin: 3px 0;
+          word-wrap: break-word;
+
+          b {
+            margin-right: 5px;
+          }
+        }
+      }
+      .orderDates {
+        padding-top: 40px;
+        font-size: 12px;
+        display: none;
+
+        .deliverydetails {
+          padding: 0;
+        }
+        .wrapper {
+          margin-top: 0;
+          width: 270px;
+          height: 60px;
+
+          .dot {
+            height: 20px;
+            width: 20px;
+
+            top: 10px;
+            font-size: 12px;
+
+            &.one {
+              left: 20px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+            &.two {
+              left: 90px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+            &.three {
+              left: 160px;
+
+              &::after {
+                top: 20px;
+                left: -10px;
+                width: 40px;
+              }
+            }
+            &.four {
+              left: 230px;
+
+              &::after {
+                top: 20px;
+                left: -15px;
+              }
+            }
+          }
+          .progress-bar {
+            height: 6px;
+            width: 70px;
+            top: 17px;
+            &.first {
+              left: 30px;
+            }
+            &.second {
+              left: 100px;
+            }
+            &.third {
+              left: 170px;
+            }
+          }
+        }
+      }
+    }
+
+    .emptyCart {
+      border: 2px solid red;
+      width: 100%;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 40px;
+      min-height: calc(100vh - 80px - 100px - 295px);
+    }
+  }
+}
