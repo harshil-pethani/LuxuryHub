@@ -23,9 +23,10 @@ const Verify = async (req, res, next) => {
 
             next();
         } else {
-            return res.status(401).json({
+            return res.status(201).json({
                 "success": false,
-                "message": "Please Login to Perform This"
+                "message": "Please Login to Perform This",
+                "rootUser": null
             })
         }
     } catch (err) {

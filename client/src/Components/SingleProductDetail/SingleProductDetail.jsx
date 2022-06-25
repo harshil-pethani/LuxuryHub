@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { cartCreateApi, getProductByIdApi } from "../../Config/Api";
 
 const SingleProductDetail = () => {
     const [currQuantity, setCurrQuantity] = useState(1);
@@ -43,7 +44,7 @@ const SingleProductDetail = () => {
             setTotal(total + (currQuantity * product.price));
 
             try {
-                await axios.post("https://luxuryhub.herokuapp.com/api/cart/create", { products, quantity, total });
+                await axios.post(cartCreateApi, { products, quantity, total });
                 toast.success("Product has been Added to the Cart", {
                     position: "top-center"
                 })
@@ -62,7 +63,7 @@ const SingleProductDetail = () => {
     useEffect(() => {
         const getProductData = async () => {
             try {
-                const productData = await axios.get(`https://luxuryhub.herokuapp.com/api/product/find/${productId}`);
+                const productData = await axios.get(getProductByIdApi(productId));
                 setProduct(productData.data);
             } catch (e) {
                 console.log(e);

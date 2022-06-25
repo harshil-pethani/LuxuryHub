@@ -2,8 +2,9 @@ import "./products.scss";
 import Product from "../Product/Product";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { getAllProductsApi, getCategorizeProductApi } from "../../Config/Api";
 
-const Products = ({ category, filters, sort }) => {
+const Products = ({ category, filters, sort, searchProduct }) => {
 
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -11,7 +12,7 @@ const Products = ({ category, filters, sort }) => {
     useEffect(() => {
         const getProducts = async () => {
             try {
-                const res = await axios.get(category ? `https://luxuryhub.herokuapp.com/api/product?category=${category}` : "https://luxuryhub.herokuapp.com/api/product")
+                const res = await axios.get(category ? getCategorizeProductApi(category) : getAllProductsApi)
                 setProducts(res.data.products);
                 setFilteredProducts(products);
             } catch (e) {
@@ -25,8 +26,8 @@ const Products = ({ category, filters, sort }) => {
         category &&
             setFilteredProducts(
                 products.filter((item) =>
-                    Object.entries(filters).every(([key, value]) =>
-                        item[key].includes(value)
+                    Object.entries(filters).every(
+                        ([key, value]) => item[key].toLowerCase().includes(value)
                     )
                 )
             )

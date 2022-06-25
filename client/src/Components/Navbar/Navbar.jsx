@@ -22,7 +22,7 @@ const Navbar = () => {
     return (
         <div ref={NavRef} className={scrolled ? "navbar scrolled" : "navbar"}>
             <div className="wrapper">
-                <div className="left">
+                {/* <div className="left">
                     <div className="language">
                         EN
                     </div>
@@ -30,8 +30,9 @@ const Navbar = () => {
                         <input type="text" placeholder="Search here" />
                         <Search className="icon" />
                     </div>
-                </div>
+                </div> */}
                 <div className="center">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/luxuryhub-3b0f6.appspot.com/o/Site%20Images%2Flogo.jpg?alt=media&token=a0bf0aeb-8633-4b58-93bf-793909899869" alt="" />
                     <h1 className="logo">
                         <NavLink to="/" className="navlink">
                             Luxury Hub
@@ -62,7 +63,7 @@ const Navbar = () => {
                                 </div>
                                 <div className="menuItem">
                                     <NavLink to="/profile" className="navlink">
-                                        <img className="profileIcon" src={currUser.avatar || "https://firebasestorage.googleapis.com/v0/b/luxuryhub-3b0f6.appspot.com/o/Site%20Images%2Fprofile.png?alt=media&token=6f94d26d-315c-478b-9892-67fda99d2cd6"} alt="" />
+                                        <img className="profileIcon" src={currUser?.avatar || "https://firebasestorage.googleapis.com/v0/b/luxuryhub-3b0f6.appspot.com/o/Site%20Images%2Fprofile.png?alt=media&token=6f94d26d-315c-478b-9892-67fda99d2cd6"} alt="" />
                                     </NavLink>
                                 </div>
                             </>

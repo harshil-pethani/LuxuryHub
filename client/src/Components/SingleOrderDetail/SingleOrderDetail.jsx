@@ -6,6 +6,7 @@ import { states } from '../../data';
 import './singleOrderDetail.scss';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { deleteOrderByIdApi, getOrderByIdApi, updateOrderByIdApi } from '../../Config/Api';
 
 
 const SingleOrderDetail = () => {
@@ -21,7 +22,7 @@ const SingleOrderDetail = () => {
     useEffect(() => {
         const getOrderData = async () => {
             try {
-                const orderData = await axios.get(`https://luxuryhub.herokuapp.com/api/order/find/${orderId}`);
+                const orderData = await axios.get(getOrderByIdApi(orderId));
                 setOrder(orderData.data);
                 setUpdateOrder(orderData.data.order);
             } catch (e) {
@@ -39,7 +40,7 @@ const SingleOrderDetail = () => {
                     position: "top-center"
                 })
             } else {
-                await axios.delete(`https://luxuryhub.herokuapp.com/api/order/cancel/${orderId}`);
+                await axios.delete(deleteOrderByIdApi(orderId));
                 toast.success("Cancelling This Order", {
                     position: "top-center"
                 })
@@ -58,7 +59,7 @@ const SingleOrderDetail = () => {
     const handleUpdateOrder = async (e) => {
         e.preventDefault();
         try {
-            const updateOrderData = await axios.put(`https://luxuryhub.herokuapp.com/api/order/update/${orderId}`, updateOrder);
+            const updateOrderData = await axios.put(updateOrderByIdApi(orderId), updateOrder);
             if (updateOrderData.status === 200) {
                 setOrder(updateOrderData.data);
                 setUpdateOrder(updateOrderData.data.order);

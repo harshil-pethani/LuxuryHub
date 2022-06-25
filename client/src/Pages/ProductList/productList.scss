@@ -2,17 +2,38 @@
   // background-color: rgb(243, 253, 253);
   position: relative;
   .productTitle {
-    margin: 20px;
+    margin: 20px 40px;
     text-transform: capitalize;
+  }
+  .searchContainer {
+    min-width: 210px;
+    // border: 2px solid red;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+
+    input {
+      min-width: 190px;
+      width: 95%;
+      padding: 10px 15px;
+      border: 3px solid gray;
+      border-radius: 5px;
+      font-size: 18px;
+      outline: none;
+      color: gray;
+      &::placeholder {
+        color: gray;
+      }
+    }
   }
   .filterContainer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    // border: 2px solid red;
+    padding: 20px 50px;
 
     .filter {
-      margin: 20px;
-
       .filterText {
         font-size: 20px;
         font-weight: 600;
@@ -51,13 +72,24 @@
   .productList {
     .productTitle {
       font-size: 25px;
+      margin: 20px;
       margin-bottom: 10px;
     }
-    .filterContainer {
-      .filter {
-        margin-top: 5px;
-        margin-bottom: 5px;
+    .searchContainer {
+      min-width: 210px;
+      padding: 10px;
 
+      input {
+        padding: 5px 10px;
+        font-size: 16px;
+        border: 2px solid gray;
+      }
+    }
+    .filterContainer {
+      padding: 5px 20px;
+      min-width: 210px;
+
+      .filter {
         .filterText {
           font-size: 18px;
           margin-right: 10px;
@@ -78,6 +110,15 @@
     }
   }
 }
+@media only screen and (max-width: 480px) {
+  .productList {
+    .productTitle {
+      font-size: 22px;
+      margin: 10px;
+      margin-bottom: 5px;
+    }
+  }
+}
 @media only screen and (max-width: 300px) {
   .productList {
     .productTitle {
@@ -85,12 +126,21 @@
       margin: 10px;
       margin-bottom: 5px;
     }
-    .filterContainer {
-      .filter {
-        margin: 10px;
-        margin-top: 5px;
-        margin-bottom: 5px;
+    .searchContainer {
+      min-width: 210px;
+      padding: 5px 10px;
 
+      input {
+        padding: 5px;
+        font-size: 12px;
+        border: 2px solid gray;
+      }
+    }
+    .filterContainer {
+      padding: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      .filter {
         .filterText {
           font-size: 14px;
           margin-right: 10px;

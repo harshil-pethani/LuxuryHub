@@ -1,9 +1,13 @@
-import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from "@material-ui/icons";
+import { Facebook, GitHub, Instagram, LinkedIn, MailOutline, Phone, Room } from "@material-ui/icons";
 import "./footer.scss";
 import { NavLink } from "react-router-dom";
 import { paymentImage } from "../../data.js";
+import { UserContext } from "../../App";
+import { useContext } from "react";
 
 const Footer = () => {
+    const { currUser } = useContext(UserContext);
+
     return (
         <div className="footer">
             <div className="left">
@@ -14,18 +18,18 @@ const Footer = () => {
                     The Collective is India’s first, and now the largest, luxury multi brand retail concept with a unique assortment of global fashion brands for men and women under one roof. A team of buyers and international fashion experts ensure that The Collective has a unique point of view and is a style mentor for its customers.
                 </p>
                 <div className="social">
-                    <div className="socialIcon" style={{ backgroundColor: "#3b5999" }}>
+                    <a href="https://www.facebook.com/harshil.pethani.73" target="_blank" className="socialIcon" style={{ backgroundColor: "#1B74E4" }}>
                         <Facebook />
-                    </div>
-                    <div className="socialIcon" style={{ backgroundColor: "#e4405f" }}>
+                    </a>
+                    <a href="https://www.instagram.com/_harshilpethani_/" target="_blank" className="socialIcon" style={{ backgroundColor: "#e4405f" }}>
                         <Instagram />
-                    </div>
-                    <div className="socialIcon" style={{ backgroundColor: "#55acee" }}>
-                        <Twitter />
-                    </div>
-                    <div className="socialIcon" style={{ backgroundColor: "#e60023" }}>
-                        <Pinterest />
-                    </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/harshil-pethani?original_referer=https%3A%2F%2Fharshilpethani.herokuapp.com%2F" target="_blank" className="socialIcon" style={{ backgroundColor: "#0A66C2" }}>
+                        <LinkedIn />
+                    </a>
+                    <a href="https://github.com/mrpethani" target="_blank" className="socialIcon" style={{ backgroundColor: "#24292F" }}>
+                        <GitHub />
+                    </a>
                 </div>
             </div>
             <div className="center">
@@ -38,23 +42,47 @@ const Footer = () => {
                             Home
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink className="navlink" to="/cart">
-                            Cart
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="navlink" to="/profile">
-                            My Account
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="navlink" to="/orders">
-                            Orders
-                        </NavLink>
-                    </li>
-                </ul>
-            </div>
+                    {
+                        (currUser === null)
+                            ?
+                            (
+                                <>
+                                    <li>
+                                        <NavLink className="navlink" to="/register">
+                                            Register
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className="navlink" to="/login">
+                                            Sign In
+                                        </NavLink>
+                                    </li>
+                                </>
+                            )
+                            :
+                            (
+                                <>
+                                    <li>
+                                        <NavLink className="navlink" to="/cart">
+                                            Cart
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className="navlink" to="/profile">
+                                            My Account
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className="navlink" to="/orders">
+                                            Orders
+                                        </NavLink>
+                                    </li>
+                                </>
+                            )
+
+                    }
+                </ul >
+            </div >
             <div className="right">
                 <h3 className="title">
                     Contact
@@ -73,7 +101,7 @@ const Footer = () => {
                 </div>
                 <img src={paymentImage} className="payment" alt="" />
             </div>
-        </div>
+        </div >
     )
 }
 

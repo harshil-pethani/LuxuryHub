@@ -10,6 +10,7 @@ import { useRef, useState } from "react";
 const ProductList = () => {
     const [filterAdded, setFilterAdded] = useState(false)
     const [filters, setFilters] = useState({});
+    const [searchProduct, setSearchProduct] = useState("");
     const [sort, setSort] = useState("");
 
     const location = useLocation();
@@ -18,11 +19,11 @@ const ProductList = () => {
     const colorRef = useRef();
     const sizeRef = useRef();
 
-    const handleFilter = (e) => {
+    const handleFilter = (title, val) => {
         setFilterAdded(true)
         setFilters({
             ...filters,
-            [e.target.name]: e.target.value
+            [title]: val
         })
     }
 
@@ -31,6 +32,7 @@ const ProductList = () => {
         sizeRef.current.selectedIndex = 0;
         setFilters({});
         setFilterAdded(false);
+        setSearchProduct("");
     }
 
     return (
@@ -40,12 +42,20 @@ const ProductList = () => {
             <h1 className="productTitle">
                 {category} Collection
             </h1>
+            <div className="searchContainer">
+                <input value={searchProduct} type="text" name="title" onChange={(e) => {
+                    let val = e.target.value;
+                    val = val.toLowerCase();
+                    handleFilter(e.target.name, val);
+                    setSearchProduct(e.target.value);
+                }} placeholder="Search Your Product ..." />
+            </div>
             <div className="filterContainer">
                 <div className="filter">
                     <span className="filterText">
                         Filter Products :
                     </span>
-                    <select ref={colorRef} name="color" id="" onChange={handleFilter}>
+                    <select ref={colorRef} name="color" id="" onChange={(e) => handleFilter(e.target.name, e.target.value)}>
                         <option defaultValue>
                             Color
                         </option>
@@ -68,7 +78,7 @@ const ProductList = () => {
                             Green
                         </option>
                     </select>
-                    <select ref={sizeRef} name="size" id="" onChange={handleFilter}>
+                    <select ref={sizeRef} name="size" id="" onChange={(e) => handleFilter(e.target.name, e.target.value)}>
                         <option defaultValue>
                             Size
                         </option>
@@ -143,9 +153,8 @@ const ProductList = () => {
                         </option>
                     </select>
                 </div>
-
             </div>
-            <Products category={category} filters={filters} sort={sort} />
+            <Products category={category} searchProduct={searchProduct} filters={filters} sort={sort} />
             <NewsLetter />
             <Footer />
         </div>

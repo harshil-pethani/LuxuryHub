@@ -1,4 +1,4 @@
-import "./login.scss";
+import "./forgot.scss";
 import axios from "axios";
 import { useContext } from "react";
 import { useState } from "react";
@@ -8,60 +8,60 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { useNavigate } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { loginUserApi } from "../../Config/Api";
+import { forgotUserApi } from "../../Config/Api";
 
-const LoginWrapper = () => {
+const Forgot = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
+    const { isFetching, setIsFetching } = useContext(UserContext);
 
-    const { setCurrUser, isFetching, setIsFetching } = useContext(UserContext);
-
-    const handleLogin = async (e) => {
+    const handleForgot = async (e) => {
         e.preventDefault();
         setIsFetching(true);
-
         try {
-            const res = await axios.post(loginUserApi, { email, password });
-            setIsFetching(false);
-            if (res.data.success === true) {
-                setCurrUser(res.data);
-                navigate('/');
-                window.location.reload();
+            const { data } = await axios.post(forgotUserApi, { email });
+            if (data.success === true) {
+                toast.success(data.message, {
+                    position: "top-center"
+                });
             } else {
-                toast.error(res.data.message, {
+                toast.error(data.message, {
                     position: "top-center"
                 })
             }
-        } catch (e) {
             setIsFetching(false);
+        } catch (e) {
             toast.error("Something went wrong", {
                 position: "top-center"
             })
+            console.log(e);
+            setIsFetching(false);
         }
     }
 
     return (
-        <div className="login">
+        <div className="forgot">
             <Navbar />
-            <div className="loginWrapper">
+            <div className="forgotWrapper">
                 <div className="left">
                     <img src="images/model.png" alt="" />
                 </div>
                 <div className="right">
-                    <div className="loginBox">
+                    <div className="forgotBox">
                         <h1 className="title">
-                            Login account
+                            Forgot Password
                         </h1>
+                        <p>
+                            Enter Your Email Id For which You want to Reset Password
+                        </p>
                         <form action="">
-                            <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter Your Email" />
-                            <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Enter Password" />
-                            <button onClick={handleLogin} disabled={isFetching}>
-                                Login
+                            <input id="emailid" type="email" placeholder="Enter Your Email" onChange={(e) => setEmail(e.target.value)} />
+                            <button onClick={(e) => handleForgot(e)} disabled={isFetching}>
+                                Send
                             </button>
-                            <NavLink to="/forgot_password" className="navlink link">
-                                Do not you remember the password ?
+                            <NavLink to="/login" className="navlink link">
+                                Already have an Account? Log In!
                             </NavLink>
                             <NavLink to="/register" className="navlink link">
                                 Create a New Account
@@ -75,4 +75,4 @@ const LoginWrapper = () => {
     )
 }
 
-export default LoginWrapper
+export default Forgot;

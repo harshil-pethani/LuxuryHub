@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { CartContext } from '../../App';
 import axios from 'axios';
+import { cartClearApi, cartCreateApi } from '../../Config/Api';
 
 const CartProduct = (product) => {
     const { quantity, setQuantity, total, setTotal, products, setProducts } = useContext(CartContext);
@@ -14,7 +15,7 @@ const CartProduct = (product) => {
     const removePro = async (currItem) => {
         if (quantity === 1) {
             setProducts([]);
-            const res = await axios.delete("https://luxuryhub.herokuapp.com/api/cart/clear");
+            const res = await axios.delete(cartClearApi);
         }
         else {
             setProducts(products.filter((product) => {
@@ -28,11 +29,10 @@ const CartProduct = (product) => {
     }
 
     useEffect(() => {
+        // It delete old cart and Create new cart with all the Products
         const postCart = async () => {
-            const res = await axios.post("https://luxuryhub.herokuapp.com/api/cart/create", { products, quantity, total });
+            const res = await axios.post(cartCreateApi, { products, quantity, total });
         }
-        // console.log("calling Post Cart");
-        // console.log(products);
         postCart();
     }, [products, quantity, total]);
 

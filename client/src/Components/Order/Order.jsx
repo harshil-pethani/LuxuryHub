@@ -2,14 +2,9 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './order.scss';
 import { NavLink } from 'react-router-dom';
-// order amount 
-// order id
-// estimated delivery
-// order status
-// order date
-// no. of products
 
 import React from 'react';
+import { orderFindApi } from '../../Config/Api';
 
 const Order = () => {
     const [currOrders, setCurrOrders] = useState([]);
@@ -17,7 +12,7 @@ const Order = () => {
     useEffect(() => {
         const getOrder = async () => {
             try {
-                const orders = await axios.get("https://luxuryhub.herokuapp.com/api/order/find");
+                const orders = await axios.get(orderFindApi);
                 setCurrOrders(orders.data);
             } catch (e) {
                 console.log(e);

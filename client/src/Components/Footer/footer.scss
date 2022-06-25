@@ -13,6 +13,7 @@
 
     .logo {
       margin: 0;
+      font-weight: 500;
     }
 
     .desc {
@@ -25,13 +26,14 @@
       .socialIcon {
         width: 40px;
         height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         border-radius: 50%;
         color: white;
         margin-right: 20px;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
       }
     }
   }

@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const Cart = () => {
     const { products, quantity, total } = useContext(CartContext);
-    // console.log(products);
 
     const [discount, setDiscount] = useState(0);
 

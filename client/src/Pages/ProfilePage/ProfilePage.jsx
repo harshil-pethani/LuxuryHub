@@ -14,12 +14,13 @@ import { CartContext, UserContext } from '../../App';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { avatarUrlLink, logoutUser, updateUserApi } from '../../Config/Api';
 
 const ProfilePage = () => {
     const { currUser, setCurrUser } = useContext(UserContext);
     const { setProducts, setQuantity, setTotal } = useContext(CartContext);
     const [File, setFile] = useState(null);
-    const [avatarUrl, setavatarUrl] = useState("https://firebasestorage.googleapis.com/v0/b/luxuryhub-3b0f6.appspot.com/o/Site%20Images%2Fprofile.png?alt=media&token=6f94d26d-315c-478b-9892-67fda99d2cd6");
+    const [avatarUrl, setavatarUrl] = useState(avatarUrlLink);
     const [loadingImg, setLoadingImg] = useState(false);
 
 
@@ -28,7 +29,7 @@ const ProfilePage = () => {
     const handleLogout = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.get("https://luxuryhub.herokuapp.com/api/auth/logout");
+            const res = await axios.get(logoutUser);
             if (res.data.success === true) {
                 setCurrUser(null);
                 setProducts([]);
@@ -98,7 +99,7 @@ const ProfilePage = () => {
     const updateUserDetails = async (msg) => {
         try {
             // setCurrUser({ ...currUser, avatar: avatarUrl });
-            const updateUserData = await axios.put(`https://luxuryhub.herokuapp.com/api/user/update/`, currUser);
+            const updateUserData = await axios.put(updateUserApi, currUser);
             if (updateUserData.data.success === true) {
                 setCurrUser(updateUserData.data);
                 toast.success(msg, {

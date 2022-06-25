@@ -4,7 +4,7 @@ import CatItem from "../CatItem/CatItem";
 
 const Categories = () => {
     return (
-        <div className="categories">
+        <div id="categories" className="categories">
             {
                 categories.map((element) => (
                     <CatItem item={element} key={element.category} />

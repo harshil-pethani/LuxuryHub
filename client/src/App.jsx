@@ -2,6 +2,7 @@
 import Home from './Pages/Home/Home'
 import ProductList from './Pages/ProductList/ProductList'
 import Login from './Pages/Login/Login'
+import Forgot from './Pages/Forgot/Forgot'
 import Register from './Pages/Register/Register'
 import SingleProduct from './Pages/SingleProduct/SingleProduct'
 import CartPage from './Pages/CartPage/CartPage'
@@ -17,6 +18,8 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import { createContext } from 'react';
 import axios from 'axios';
+import { cartFind } from './Config/Api'
+import Reset from './Pages/Reset/Reset'
 
 
 // Contexts
@@ -37,7 +40,7 @@ const App = () => {
 
   useEffect(() => {
     const getCart = async () => {
-      const res = await axios.get("https://luxuryhub.herokuapp.com/api/cart/find");
+      const res = await axios.get(cartFind);
       setCurrUser(res.data.rootUser);
       if (res.data.quantity > 0) {
         setQuantity(res.data.quantity);
@@ -75,6 +78,10 @@ const App = () => {
               <Route exact path="/register" element={currUser ? <Navigate to="/" /> : <Register />} />
 
               <Route exact path="/login" element={currUser ? <Navigate to="/" /> : <Login />} />
+
+              <Route exact path="/forgot_password" element={currUser ? <Navigate to="/" /> : <Forgot />} />
+
+              <Route exact path="/reset_password" element={currUser ? <Navigate to="/" /> : <Reset />} />
             </Routes>
           </ScrollToTop>
         </CartContext.Provider>

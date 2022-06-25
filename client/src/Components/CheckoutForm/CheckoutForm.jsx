@@ -3,37 +3,42 @@ import './checkoutForm.scss';
 import { states } from '../../data';
 import axios from 'axios';
 import { useContext } from 'react';
-import { CartContext } from '../../App';
+import { CartContext, UserContext } from '../../App';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { cartClearApi, orderCreateApi } from '../../Config/Api';
 
 
 const CheckoutForm = () => {
     const navigate = useNavigate();
     const [order, setOrder] = useState({});
 
-    // Items of Context
     const { products, setProducts, quantity, setQuantity, total, setTotal } = useContext(CartContext);
+
+    const { isFetching, setIsFetching } = useContext(UserContext);
 
     const handleOrder = (e) => {
         e.preventDefault();
+        setIsFetching(true);
         const postOrder = async () => {
             try {
-                const createOrder = await axios.post("https://luxuryhub.herokuapp.com/api/order/create", { order, products, quantity, total });
+                const createOrder = await axios.post(orderCreateApi, { order, products, quantity, total });
 
                 if (createOrder.data.success === true) {
-                    const clearCart = await axios.delete("https://luxuryhub.herokuapp.com/api/cart/clear");
+                    const clearCart = await axios.delete(cartClearApi);
                     setProducts({});
                     setQuantity(0);
                     setTotal(0);
                     toast.success("Order placed Successfully", {
                         position: "top-center"
                     });
+                    setIsFetching(false);
                     setTimeout(() => {
                         navigate("/");
                         window.location.reload();
                     }, 3000);
                 } else {
+                    setIsFetching(false);
                     toast.error(createOrder.data.message, {
                         position: "top-center"
                     })
@@ -105,7 +110,7 @@ const CheckoutForm = () => {
                             <span className="agreement">
                                 By Clicking Complete Order Button, You Can not Directly Change the Order Details You have to make Request for Changing Order Details
                             </span>
-                            <button onClick={handleOrder}>
+                            <button disabled={isFetching} onClick={handleOrder}>
                                 Complete Order
                             </button>
                         </form>

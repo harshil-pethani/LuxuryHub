@@ -1,4 +1,4 @@
-import React from 'react'
+import "./home.scss";
 import Announcement from '../../Components/Announcement/Announcement'
 import Navbar from '../../Components/Navbar/Navbar'
 import Slider from '../../Components/Slider/Slider'
@@ -15,6 +15,11 @@ const Home = () => {
             <Slider />
             <Categories />
             <Products />
+            <div className="btnContainer">
+                <a className="viewMoreBtn" href="#categories">
+                    View More
+                </a>
+            </div>
             <NewsLetter />
             <Footer />
         </div>

@@ -105,7 +105,6 @@ router.delete("/clear", Verify, async (req, res) => {
 
 //Get User Cart
 router.get("/find", Verify, async (req, res) => {
-    // if (req.user.id === req.params.userId || req.user.isAdmin) {
     try {
         const cart = await Cart.findOne({ userId: req.userId });
 
@@ -133,12 +132,6 @@ router.get("/find", Verify, async (req, res) => {
             "message": "Getting Cart Failed"
         })
     }
-    // } else {
-    //     res.status(403).json({
-    //         "success": false,
-    //         "message": "You Are not Authenticated"
-    //     })
-    // }
 })
 
 // Get All Carts
