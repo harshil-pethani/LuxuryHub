@@ -8,7 +8,7 @@ export const forgotUserApi = `https://luxuryhub.herokuapp.com/api/auth/forgotpas
 
 export const resetTokenVerifyApi = `https://luxuryhub.herokuapp.com/api/auth/reset_token_verify`;
 
-export const resetPasswordApi = `https://luxuryhub.herokuapp.com/api/auth/reset_password`; //--------
+export const resetPasswordApi = `https://luxuryhub.herokuapp.com/api/auth/reset_password`;
 
 export const updateUserApi = "https://luxuryhub.herokuapp.com/api/user/update/";
 
